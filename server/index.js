@@ -8,7 +8,11 @@ const aiRoutes = require('./routes/aiRoutes'); // ✅ Gemini AI chatbot route
 const planRoutes = require('./routes/planRoutes');
 const app = express();
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://health-and-fitness-track.onrender.com', // 👈 frontend URL
+  credentials: true
+}));
+
 app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
