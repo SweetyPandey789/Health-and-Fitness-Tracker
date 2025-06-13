@@ -15,6 +15,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/ai', aiRoutes); // ✅ Access via POST /api/chatbot
 app.use('/api/plans', planRoutes);
 app.use('/api/appointments', require('./routes/appointmentRoutes'));
+app.get('/', (req, res) => {
+  res.send('✅ Backend is running!');
+});
+
 // Database connection and server start
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
